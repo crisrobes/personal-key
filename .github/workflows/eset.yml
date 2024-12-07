@@ -68,4 +68,11 @@ jobs:
             seq 1 ${KEY} | xargs -I {} -P ${KEY} python3 main.py --chrome ${KEY_TYPE} --email-api ${MAIL} --skip-webdriver-menu --skip-update-check --no-logo --disable-progress-bar
             echo -e "\nKey:" >> $GITHUB_STEP_SUMMARY
             cat ./*KEYS.txt >> $GITHUB_STEP_SUMMARY
+            echo -e "\nKey:" >> summary.txt
+            cat ./*KEYS.txt >> summary.txt
           fi
+      - name: Upload artefact
+        uses: actions/upload-artifact@v2
+        with:
+          name: summary
+          path: summary.txt
