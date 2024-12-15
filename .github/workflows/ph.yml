@@ -29,8 +29,7 @@ on:
         type: choice
         options:
         - --key
-        - --small-business-key
-        - --vpn-codes
+        - --advanced-key
         default: --advanced-key
       os:
         description: 'Operating System of runner'
