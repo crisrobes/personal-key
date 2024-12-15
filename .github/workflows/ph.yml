@@ -60,7 +60,7 @@ jobs:
           python3 -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
-          seq 1 ${KEY} | xargs -I {} -P ${KEY} sh -c 'yes y | python3 main.py --chrome ${KEY_TYPE} --email-api ${MAIL} --skip-webdriver-menu --skip-update-check --no-logo --disable-progress-bar'
+          seq 1 ${KEY} | xargs -I {} -P ${KEY} sh -c 'yes y | python3 main.py --chrome '"${KEY_TYPE}"' --email-api '"${MAIL}"' --skip-webdriver-menu --skip-update-check --no-logo --disable-progress-bar'
           echo -e "\nKey:" >> $GITHUB_STEP_SUMMARY
           cat ./*KEYS.txt >> $GITHUB_STEP_SUMMARY
           cat ./*KEYS.txt >> ../summary.txt
